@@ -7,6 +7,17 @@ export const dynamic = "force-dynamic"
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
+    
+    // If no database connection, just log and return success (Mock Mode)
+    if (!process.env.DATABASE_URL || process.env.DATABASE_URL === 'postgres://placeholder') {
+        console.log('Mock Lead Captured (No DB):', body);
+        return NextResponse.json({ 
+            success: true, 
+            message: 'Lead captured (Mock Mode)',
+            leadId: 'mock-id-' + Date.now()
+        })
+    }
+
     const { email, firstName, lastName, phone, company, message, source, interests } = body
 
     // Check if email already exists
@@ -65,6 +76,11 @@ export async function POST(request: NextRequest) {
 
 export async function GET() {
   try {
+    // Mock response if no DB
+    if (!process.env.DATABASE_URL || process.env.DATABASE_URL === 'postgres://placeholder') {
+        return NextResponse.json({ success: true, leads: [] })
+    }
+
     const leads = await prisma.lead.findMany({
       orderBy: { createdAt: 'desc' },
       take: 10

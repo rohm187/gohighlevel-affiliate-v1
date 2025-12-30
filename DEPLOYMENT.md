@@ -8,8 +8,8 @@ This doc describes how to deploy this Next.js app to Vercel (recommended) using 
 
 2) Regenerate pnpm lockfile (locally)
 - Ensure pnpm v8+ is installed.
-- Remove other lockfiles if present:
-  - `git rm -f package-lock.json yarn.lock || true`
+- Remove other lockfiles if present (safe to run even if files don't exist):
+  - `git rm -f package-lock.json yarn.lock 2>/dev/null` or check first with `ls package-lock.json yarn.lock 2>/dev/null`
 - Regenerate the lockfile:
   - `rm -f pnpm-lock.yaml`
   - `pnpm install`

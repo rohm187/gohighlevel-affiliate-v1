@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: NextRequest) {
   // If you had file handling logic, keep it server-side and migrate to @google-cloud/storage.
-  return NextResponse.json({ ok: false, message: 'Uploads disabled - migrate to Google Cloud Storage (TODO)' }, { status: 501 });
+  return NextResponse.json({ ok: false, message: 'File uploads are temporarily unavailable during system migration to Google Cloud Storage' }, { status: 501 });
 }
 
 export async function GET() {

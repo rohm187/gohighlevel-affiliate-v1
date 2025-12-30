@@ -4,6 +4,25 @@ A modern, high-converting Next.js website designed for GoHighLevel affiliate mar
 
 ---
 
+## 🛠️ Contributing
+
+This project uses **pnpm** as the package manager. To get started with local development:
+
+```bash
+# Install pnpm if you haven't already
+npm install -g pnpm
+
+# Install dependencies
+pnpm install
+
+# Run development server
+pnpm dev
+```
+
+**Note:** Please use `pnpm install` instead of `npm install` or `yarn install` to ensure consistency with the lock file.
+
+---
+
 ## ✨ Features
 
 - ✅ **Lead Capture Forms** - Integrated with PostgreSQL database
@@ -69,30 +88,31 @@ NEXTAUTH_URL='https://yourdomain.com'
 
 ### Prerequisites
 
-- Node.js 18+ or Yarn
+- Node.js 18+
+- pnpm (recommended package manager)
 - PostgreSQL database
 - GoHighLevel affiliate account
 
 ### 1. Install Dependencies
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### 2. Set Up Database
 
 ```bash
 # Generate Prisma Client
-yarn prisma generate
+pnpm prisma generate
 
 # Push schema to database
-yarn prisma db push
+pnpm prisma db push
 ```
 
 ### 3. Run Development Server
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
@@ -359,19 +379,19 @@ All content is in component files under `/components/` and `/app/`.
 
 ```bash
 # Development
-yarn dev              # Start dev server
+pnpm dev              # Start dev server
 
 # Build
-yarn build            # Build for production
-yarn start            # Start production server
+pnpm build            # Build for production
+pnpm start            # Start production server
 
 # Database
-yarn prisma generate  # Generate Prisma Client
-yarn prisma db push   # Push schema to database
-yarn prisma studio    # Open Prisma Studio (GUI)
+pnpm prisma generate  # Generate Prisma Client
+pnpm prisma db push   # Push schema to database
+pnpm prisma studio    # Open Prisma Studio (GUI)
 
 # Linting
-yarn lint             # Run ESLint
+pnpm lint             # Run ESLint
 ```
 
 ---

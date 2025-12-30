@@ -1,9 +1,13 @@
 {
   "name": "app",
   "private": true,
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "npx prisma generate && next build",
+    "vercel-build": "pnpm build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "echo 'Skipping prisma generate'"
